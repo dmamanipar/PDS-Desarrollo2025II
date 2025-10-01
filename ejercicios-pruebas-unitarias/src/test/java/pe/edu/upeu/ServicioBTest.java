@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class ServicioBTest {
+class ServicioBTest {
 
     @Order(1)
     @Test
-    public void testMultiplicar(){
+    void testMultiplicar(){
         ServicioB servicioB=new ServicioBImpl();
         int resultado=servicioB.multiplicar(3,4);
         Assertions.assertEquals(12,resultado);
@@ -17,7 +17,7 @@ public class ServicioBTest {
 
     @Order(2)
     @Test
-    public void testMultiplicarSumar(){
+    void testMultiplicarSumar(){
         ServicioA servicioA=new ServicioAImpl();
         ServicioB servicioB=new ServicioBImpl();
         servicioB.setServicioA(servicioA);
@@ -25,7 +25,7 @@ public class ServicioBTest {
     }
     @Order(3)
     @Test
-    public void testMultiplicarSumarMockito(){
+    void testMultiplicarSumarMockito(){
         ServicioA servicioA= Mockito.mock(ServicioA.class);
         Mockito.when(servicioA.sumar(2,3)).thenReturn(5);
 
